@@ -1,84 +1,60 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./index.css";
+
+const projects = [
+  {
+    name: "Pizza Menu",
+    component: React.lazy(() => import("./01-pizza-menu/App")),
+  },
+  {
+    name: "Steps", // Replace with the name of your second project
+    component: React.lazy(() => import("./02-steps/App")), // Replace with the path to your second project's App component
+  },
+  {
+    name: "Travelling Packing list", // Replace with the name of your second project
+    component: React.lazy(() => import("./03-Traveling-checklist/App")), // Replace with the path to your second project's App component
+  },
+  {
+    name: "Tip Challenge", // Replace with the name of your second project
+    component: React.lazy(() => import("./04-tipChallenge/App")), // Replace with the path to your second project's App component
+  },
+];
 
 export default function App() {
-  const [cost, setCost] = useState(0);
+  const [activeProject, setActiveProject] = useState(null);
 
-  const [tip1, setTip1] = useState(0);
-  const [tip2, setTip2] = useState(0);
+  const handleProjectChange = (event) => {
+    const selectedProjectName = event.target.value;
+    const selectedProject = projects.find(
+      (project) => project.name === selectedProjectName
+    );
+    setActiveProject(selectedProject);
+  };
 
-  function resetHandlre() {
-    setCost(0);
-    setTip1(0);
-    setTip2(0);
-  }
+  const renderActiveProject = () => {
+    if (activeProject) {
+      const ProjectComponent = activeProject.component;
+      return (
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <ProjectComponent />
+        </React.Suspense>
+      );
+    }
+    return null;
+  };
+
   return (
     <div>
-      <Bill setCost={setCost} cost={cost} />
-      <Tip tip={tip1} setTip={setTip1}>
-        How did you like the service?
-      </Tip>
-      <Tip tip={tip2} setTip={setTip2}>
-        How did your friend like the service?
-      </Tip>
-      {cost > 0 && (
-        <>
-          {" "}
-          <Total cost={cost} tip1={tip1} tip2={tip2} />
-          <Reset onReset={resetHandlre} />
-        </>
-      )}
-    </div>
-  );
-}
-
-function Bill({ setCost, cost }) {
-  return (
-    <div>
-      <br />
-      <label>How much was the bill?</label>
-      <input
-        type="text"
-        value={cost !== 0 ? cost : ""}
-        onChange={(e) => setCost(Number(e.target.value))}
-      />
-    </div>
-  );
-}
-
-function Tip({ children, setTip, tip }) {
-  function handleTip(e) {
-    setTip(Number(e.target.value));
-  }
-  return (
-    <div>
-      <br />
-      <label>{children}</label>
-      <select value={tip} onChange={handleTip}>
-        <option value={0}>not satisfied 0%</option>
-        <option value={10}>fine 10%</option>
-        <option value={20}>amazing 20%</option>
+      <h2>React Projects: </h2>
+      <select onChange={handleProjectChange}>
+        <option value="">Select a project</option>
+        {projects.map((project) => (
+          <option key={project.name} value={project.name}>
+            {project.name}
+          </option>
+        ))}
       </select>
-    </div>
-  );
-}
-
-function Total({ cost, tip1, tip2 }) {
-  const totalTip = (cost * ((tip1 + tip2) / 2)) / 100;
-  return (
-    <div>
-      <br />
-      <strong>
-        You pay ${cost + totalTip} (${cost} + ${totalTip} tip)
-      </strong>
-    </div>
-  );
-}
-
-function Reset({ onReset }) {
-  return (
-    <div>
-      <br />
-      <button onClick={onReset}>Reset</button>
+      {renderActiveProject()}
     </div>
   );
 }
