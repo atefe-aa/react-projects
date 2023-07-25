@@ -18,6 +18,10 @@ const projects = [
     name: "Tip Challenge", // Replace with the name of your second project
     component: React.lazy(() => import("./04-tipChallenge/App")), // Replace with the path to your second project's App component
   },
+  {
+    name: "Eat-N-Split", // Replace with the name of your second project
+    component: React.lazy(() => import("./05-eat-n-split/App")), // Replace with the path to your second project's App component
+  },
 ];
 
 export default function App() {
@@ -45,15 +49,19 @@ export default function App() {
 
   return (
     <div>
-      <h2>React Projects: </h2>
-      <select onChange={handleProjectChange}>
-        <option value="">Select a project</option>
-        {projects.map((project) => (
-          <option key={project.name} value={project.name}>
-            {project.name}
-          </option>
-        ))}
-      </select>
+      {activeProject ? null : (
+        <div>
+          <h2>React Projects: </h2>
+          <select onChange={handleProjectChange}>
+            <option value="">Select a project</option>
+            {projects.map((project) => (
+              <option key={project.name} value={project.name}>
+                {project.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
       {renderActiveProject()}
     </div>
   );
