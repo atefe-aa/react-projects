@@ -1,0 +1,265 @@
+/* Your existing CSS styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Charlie Text", sans-serif;
+  box-sizing: border-box;
+}
+
+.brand img {
+  margin-right: 5px;
+  width: 100px;
+}
+
+#signup {
+  border-radius: 0%;
+  height: 100%;
+}
+
+.jumbotron {
+  padding: 70px;
+  background: url(./images/white-wave-bg.svg) center 101% / 100% auto no-repeat scroll
+      padding-box border-box,
+    linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 10% 0% / auto
+      repeat scroll padding-box border-box rgb(82, 67, 170);
+  background-blend-mode: normal, normal;
+  color: rgb(255, 255, 255);
+}
+
+.jumbotron-content {
+  letter-spacing: 1px;
+  width: 80vh;
+}
+
+.jumbotron-content a {
+  margin-top: 20px;
+  color: #f5f3f3;
+  font-size: large;
+}
+
+#play-icon svg {
+  margin-left: 10px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.features-introduction {
+  padding: 0 90px;
+  background: linear-gradient(180deg, #ffff, rgb(219, 246, 248)) 10% 2% / auto;
+  background-blend-mode: normal, normal;
+}
+
+.introduction h2 {
+  margin-top: 0;
+}
+.introduction p {
+  font-size: large;
+  width: 50%;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.33333;
+}
+
+.features {
+  padding-top: 40px;
+  padding-bottom: 90px;
+}
+.features .card {
+  text-align: left;
+  border: none;
+  background-color: #ffffff00;
+  cursor: pointer;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.card:active {
+  box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5rem 1rem 0px;
+  background-color: #e8eff573;
+  border-left: solid 5px #95e2f5;
+}
+
+.carousel .slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.slider {
+  /* transition: transform 0.3 ease; */
+  border-radius: 5px;
+}
+/* #boards,
+#lists {
+  display: none;
+} */
+
+.comments {
+  padding: 90px;
+  background: linear-gradient(180deg, #ffff, rgb(219, 246, 248), #ffff) 10% 2% /
+    auto;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+  z-index: -1;
+  cursor: grab;
+}
+
+.carousel-content {
+  border-radius: 8px;
+  box-shadow: #55555549 0px 0.5rem 1rem 0px;
+}
+.comment {
+  background-image: url(./images/qoute.PNG);
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
+
+.comment-paragraph {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding: 3rem;
+}
+
+.commnet-name,
+.company-name {
+  font-size: 0.9rem;
+  color: #3a3939;
+  padding-left: 1.5rem;
+}
+
+.comment-footer {
+  margin-bottom: 40px;
+}
+.comment-footer span {
+  padding-left: 1.5rem;
+  font-weight: 1000;
+}
+.comment-footer a {
+  text-align: right;
+}
+
+.stats {
+  border-radius: inherit;
+  grid-column: 3/4;
+  display: grid;
+  padding: 15px 20px;
+  background: linear-gradient(
+      45deg,
+      rgba(82, 67, 170, 0.733),
+      rgba(237, 80, 179, 0.699)
+    )
+    100% 100% / auto;
+  background-blend-mode: normal, normal;
+  color: rgb(255, 255, 255);
+}
+.stats p {
+  font-size: x-large;
+  font-weight: 1000;
+  line-height: 1.5;
+}
+.stats a {
+  margin-top: auto;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: medium;
+}
+
+#carousel-content1,
+#carousel-content2 {
+  display: none;
+}
+
+.signup-section {
+  padding: 70px 0;
+  background: url(./images/signup-section-left.svg) left center / contain no-repeat
+      scroll padding-box border-box,
+    url(./images/signup-section-right.svg) right center / contain no-repeat scroll
+      padding-box border-box,
+    linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto
+      repeat scroll padding-box border-box rgb(82, 67, 170);
+  background-blend-mode: normal, normal, normal;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 845px) {
+  .signup-section {
+    background: linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0%
+      0% / auto repeat scroll padding-box border-box rgb(82, 67, 170);
+  }
+}
+.signup-section {
+  text-align: center;
+}
+
+.signup-section div h2 {
+  font-size: 1.7rem;
+}
+
+.footer {
+  background-color: #172b4d;
+}
+
+.footer-top-container {
+  padding-top: 20px;
+}
+
+.footer-top-item:hover {
+  background-color: #66748b59;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: small;
+}
+
+.footer-bottom-container {
+  padding: 10px 0px;
+}
+
+.LanguageSelect span {
+  font-size: 1.3rem;
+  align-self: center;
+}
+.LanguageSelect select {
+  font-size: 1.3rem;
+  cursor: pointer;
+  border: none;
+  color: #f5f3f3;
+  background-color: #172b4d;
+}
+
+.footer-bottom-items ul {
+  list-style: none;
+  display: flex;
+  align-self: center;
+}
+.footer-bottom-items ul li {
+  margin-left: 15px;
+}
+.footer-bottom-items span {
+  color: #797676;
+}
+.social-media a {
+  color: #fff;
+}
+
+@media screen and (max-width: 760px) {
+  .footer-bottom-items ul {
+    display: block;
+    padding-left: 0;
+  }
+  .language {
+    padding-left: 0;
+  }
+  .LanguageSelect select,
+  .LanguageSelect span {
+    font-size: 1rem;
+  }
+}
