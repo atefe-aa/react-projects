@@ -26,6 +26,10 @@ const projects = [
     name: "Text Expantion API", // Replace with the name of your second project
     component: React.lazy(() => import("./06-apiComponentChallenge/App")), // Replace with the path to your second project's App component
   },
+  {
+    name: "How React Works", // Replace with the name of your second project
+    component: React.lazy(() => import("./08-How-React-works/App")), // Replace with the path to your second project's App component
+  },
 ];
 
 export default function App() {
