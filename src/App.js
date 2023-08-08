@@ -7,28 +7,32 @@ const projects = [
     component: React.lazy(() => import("./01-pizza-menu/App")),
   },
   {
-    name: "Steps", // Replace with the name of your second project
-    component: React.lazy(() => import("./02-steps/App")), // Replace with the path to your second project's App component
+    name: "Steps",
+    component: React.lazy(() => import("./02-steps/App")),
   },
   {
-    name: "Travelling Packing list", // Replace with the name of your second project
-    component: React.lazy(() => import("./03-Traveling-checklist/App")), // Replace with the path to your second project's App component
+    name: "Travelling Packing list",
+    component: React.lazy(() => import("./03-Traveling-checklist/App")),
   },
   {
-    name: "Tip Challenge", // Replace with the name of your second project
-    component: React.lazy(() => import("./04-tipChallenge/App")), // Replace with the path to your second project's App component
+    name: "Tip Challenge",
+    component: React.lazy(() => import("./04-tipChallenge/App")),
   },
   {
-    name: "Eat-N-Split", // Replace with the name of your second project
-    component: React.lazy(() => import("./05-eat-n-split/App")), // Replace with the path to your second project's App component
+    name: "Eat-N-Split",
+    component: React.lazy(() => import("./05-eat-n-split/App")),
   },
   {
-    name: "Text Expantion API", // Replace with the name of your second project
-    component: React.lazy(() => import("./06-apiComponentChallenge/App")), // Replace with the path to your second project's App component
+    name: "Text Expantion API",
+    component: React.lazy(() => import("./06-apiComponentChallenge/App")),
   },
   {
-    name: "How React Works", // Replace with the name of your second project
-    component: React.lazy(() => import("./08-How-React-works/App")), // Replace with the path to your second project's App component
+    name: "How React Works",
+    component: React.lazy(() => import("./08-How-React-works/App")),
+  },
+  {
+    name: "usePopcorn-Movie website",
+    component: React.lazy(() => import("./09-usePopcorn/App")),
   },
 ];
 
