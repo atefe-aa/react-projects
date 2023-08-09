@@ -34,6 +34,10 @@ const projects = [
     name: "usePopcorn-Movie website",
     component: React.lazy(() => import("./09-usePopcorn/App")),
   },
+  {
+    name: "Star Rating Component",
+    component: React.lazy(() => import("./star-rating/App")),
+  },
 ];
 
 export default function App() {
