@@ -52,15 +52,23 @@ const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr?.length, 0);
 
 const key = "9b708f19";
+const query = "interstellar";
 export default function App() {
   const [movies, setMovies] = useState([]);
-
   const [watched, setWatched] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=9b708f19&s=interstellar`)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
+    async function moviesFetching() {
+      setIsLoading(true);
+      const res = await fetch(
+        `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`
+      );
+      const data = await res.json();
+      setMovies(data.Search);
+      setIsLoading(false);
+    }
+    moviesFetching();
   }, []);
 
   return (
@@ -71,9 +79,7 @@ export default function App() {
         <NumResult movies={movies} />
       </Navbar>
       <Main>
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
+        <Box>{isLoading ? <Loader /> : <MovieList movies={movies} />}</Box>
 
         <Box>
           <WatchedSummery watched={watched} />
@@ -82,6 +88,10 @@ export default function App() {
       </Main>
     </>
   );
+}
+
+function Loader(){
+  return <p className="loader">Loading...</p>
 }
 
 function Navbar({ children }) {
