@@ -1,30 +1,30 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 
-export default function App() {
-  return (
-    <>
-      <StarRating maxRating={5} />
-      <StarRating color="red" size={24} />
-      <StarRating
-        maxRating={5}
-        messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
-        defaultRating={3}
-      />
-      <Test />
-    </>
-  );
-}
+// export default function App() {
+//   return (
+//     <>
+//       <StarRating maxRating={5} />
+//       <StarRating color="red" size={24} />
+//       <StarRating
+//         maxRating={5}
+//         messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
+//         defaultRating={3}
+//       />
+//       <Test />
+//     </>
+//   );
+// }
 
-function Test() {
-  const [movieRating, setMovieRating] = useState(0);
-  return (
-    <div>
-      <StarRating color="blue" onStarRating={setMovieRating} maxRating={10} />
-      <p>This movies is rated {movieRating} stars.</p>
-    </div>
-  );
-}
+// function Test() {
+//   const [movieRating, setMovieRating] = useState(0);
+//   return (
+//     <div>
+//       <StarRating color="blue" onStarRating={setMovieRating} maxRating={10} />
+//       <p>This movies is rated {movieRating} stars.</p>
+//     </div>
+//   );
+// }
 
 const containerStyle = {
   display: "flex",
@@ -44,10 +44,9 @@ StarRating.propTypes = {
   messages: PropTypes.array,
   className: PropTypes.string,
   onStarRating: PropTypes.func,
-}
+};
 
-
-function StarRating({
+export default function StarRating({
   maxRating = 5,
   messages = "",
   color = "#fcc419",
