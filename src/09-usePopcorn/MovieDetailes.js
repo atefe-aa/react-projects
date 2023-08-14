@@ -29,11 +29,17 @@ export function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
 
   useEffect(
     function () {
-      document.addEventListener("keydown", function (e) {
+      function callback(e) {
         if (e.code === "Escape") {
           onClose();
         }
-      });
+      }
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        //to prevent having so many event listners which causes memory problems
+        document.removeEventListener("keydown", callback);
+      };
     },
     [onClose]
   );
