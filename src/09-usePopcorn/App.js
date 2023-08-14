@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import "./css/index.css";
-import  Loader  from "./components/Loader";
-import  ErrorMessage  from "./components/ErrorMessage";
-import  Navbar  from "./components/Navbar";
-import  Search  from "./components/Search";
-import  Logo  from "./components/Logo";
-import  NumResult  from "./components/NumResult";
-import  Main  from "./components/Main";
-import  Box  from "./components/Box";
-import  MovieList  from "./components/MovieList";
-import  MovieDetailes  from "./components/MovieDetailes";
-import  WatchedSummery  from "./components/WatchedSummery";
-import  WatchedMoviesList  from "./components/WatchedMoviesList";
+import Loader from "./components/Loader";
+import ErrorMessage from "./components/ErrorMessage";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import Logo from "./components/Logo";
+import NumResult from "./components/NumResult";
+import Main from "./components/Main";
+import Box from "./components/Box";
+import MovieList from "./components/MovieList";
+import MovieDetailes from "./components/MovieDetailes";
+import WatchedSummery from "./components/WatchedSummery";
+import WatchedMoviesList from "./components/WatchedMoviesList";
 import { useMovies } from "./customHooks/useMovies";
+import { useLocalStorageState } from "./customHooks/useLocalStorageState";
 
 document.title = `usePopcorn`;
 
@@ -24,12 +25,9 @@ export const key = "9b708f19";
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  //const [watched, setWatched] = useState([]);
-  const [watched, setWatched] = useState(function () {
-    //we can set initial value of a state using a simple callback function with a return and NOT calling a function
-    const storedValue = localStorage.getItem("watched");
-    return JSON.parse(storedValue);
-  });
+
+  const [watched, setWatched] = useLocalStorageState([], "watched");
+
   const { movies, isLoading, error } = useMovies(query);
 
   function handleSelectMovie(id) {
@@ -47,13 +45,6 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
-
-  useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
-    [watched]
-  );
 
   return (
     <>
