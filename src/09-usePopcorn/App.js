@@ -251,8 +251,14 @@ function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
 
   useEffect(
     function () {
+      //it changes the page title to the selected movie title
       if (!title) return;
       document.title = `Movie | ${title}`;
+
+      //to change the page title back to usePopcorn when unselect a movie
+      return function () { //this will execute after rerendering
+        document.title = "usePopcorn";
+      };
     },
     [title]
   );
