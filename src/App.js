@@ -34,6 +34,10 @@ const projects = [
     name: "usePopcorn-Movie website",
     component: React.lazy(() => import("./09-usePopcorn/App")),
   },
+  {
+    name: "Exchange API",
+    component: React.lazy(() => import("./10-exchangeAPI-Challenge/App")),
+  },
 ];
 
 export default function App() {
