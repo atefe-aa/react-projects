@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import "./index.css";
-import { Loader } from "./Loader";
-import { ErrorMessage } from "./ErrorMessage";
-import { Navbar } from "./Navbar";
-import { Search } from "./Search";
-import { Logo } from "./Logo";
-import { NumResult } from "./NumResult";
-import { Main } from "./Main";
-import { Box } from "./Box";
-import { MovieList } from "./MovieList";
-import { MovieDetailes } from "./MovieDetailes";
-import { WatchedSummery } from "./WatchedSummery";
-import { WatchedMoviesList } from "./WatchedMoviesList";
+import "./css/index.css";
+import { Loader } from "./components/Loader";
+import { ErrorMessage } from "./components/ErrorMessage";
+import { Navbar } from "./components/Navbar";
+import { Search } from "./components/Search";
+import { Logo } from "./components/Logo";
+import { NumResult } from "./components/NumResult";
+import { Main } from "./components/Main";
+import { Box } from "./components/Box";
+import { MovieList } from "./components/MovieList";
+import { MovieDetailes } from "./components/MovieDetailes";
+import { WatchedSummery } from "./components/WatchedSummery";
+import { WatchedMoviesList } from "./components/WatchedMoviesList";
 
 document.title = `usePopcorn`;
 
