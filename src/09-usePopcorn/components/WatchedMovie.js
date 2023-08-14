@@ -1,4 +1,4 @@
-export function WatchedMovie({ movie, onDelete }) {
+export  default function WatchedMovie({ movie, onDelete }) {
   return (
     <li key={movie.imdbID}>
       <img src={movie.poster} alt={`${movie.title} poster`} />

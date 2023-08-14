@@ -1,4 +1,4 @@
-export function Movie({ movie, onSelect }) {
+export  default function Movie({ movie, onSelect }) {
   return (
     <li onClick={() => onSelect(movie.imdbID)} key={movie.imdbID}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />

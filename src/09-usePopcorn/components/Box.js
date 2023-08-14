@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Box({ children }) {
+export default  function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (

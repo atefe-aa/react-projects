@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import StarRating from "../../star-rating/App";
-import { Loader } from "./Loader";
+import  Loader  from "./Loader";
 import { key } from "../App";
 
-export function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
+export  default function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
   const [movie, setMovie] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(0);
