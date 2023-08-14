@@ -38,9 +38,10 @@ export default function App() {
         try {
           setIsLoading(true);
           setError("");
-
+          const controller = new AbortController(); //to prevent fetching so many requests at the same time
           const res = await fetch(
-            `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`
+            `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`,
+            { signal: controller.signal }
           );
 
           if (!res.ok)
@@ -50,9 +51,13 @@ export default function App() {
           if (data.Response === "False") throw new Error("Movie not found!");
 
           setMovies(data.Search);
+          setError(""); //because of rerendering and abort errors
         } catch (err) {
           console.error(err.message);
-          setError(err.message);
+          if (err.name !== "AbortError") {
+            // to ignor abort errors
+            setError(err.message);
+          }
         } finally {
           //to have the is loading off,after everything is done specially after throwing an error
           setIsLoading(false);
@@ -256,7 +261,8 @@ function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
       document.title = `Movie | ${title}`;
 
       //to change the page title back to usePopcorn when unselect a movie
-      return function () { //this will execute after rerendering
+      return function () {
+        //this will execute after rerendering
         document.title = "usePopcorn";
       };
     },
