@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import StarRating from "../../star-rating/App";
 import  Loader  from "./Loader";
 import { key } from "../App";
+import { useKey } from "../customHooks/useKey";
 
 export  default function MovieDetailes({ selectedId, onClose, onAddWatched, watched }) {
   const [movie, setMovie] = useState("");
@@ -37,22 +38,8 @@ export  default function MovieDetailes({ selectedId, onClose, onAddWatched, watc
     [userRating]
   );
 
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          onClose();
-        }
-      }
-      document.addEventListener("keydown", callback);
 
-      return function () {
-        //to prevent having so many event listners which causes memory problems
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onClose]
-  );
+  useKey('Escape', onClose);
 
   const {
     Title: title,
