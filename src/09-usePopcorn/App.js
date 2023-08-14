@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import "./css/index.css";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
