@@ -43,7 +43,7 @@ body {
 
 .main {
   margin-top: 2.4rem;
-  height: calc(100vh - 7.2rem - 3 * 2.4rem);
+  /* height: calc(100vh - 7.2rem - 3 * 2.4rem); */
   display: flex;
   gap: 2.4rem;
   justify-content: center;
@@ -54,7 +54,7 @@ body {
   max-width: 42rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
-  /* overflow: scroll; */
+  /* height: fit-content; */
   position: relative;
 }
 
@@ -346,5 +346,3 @@ SPACING SYSTEM (px)
 FONT SIZE SYSTEM (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
 */
-
-
