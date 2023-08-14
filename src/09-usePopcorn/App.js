@@ -46,11 +46,12 @@ export default function App() {
 
   useEffect(
     function () {
+      const controller = new AbortController();
       async function moviesFetching() {
         try {
           setIsLoading(true);
           setError("");
-          const controller = new AbortController(); //to prevent fetching so many requests at the same time
+          //to prevent fetching so many requests at the same time
           const res = await fetch(
             `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`,
             { signal: controller.signal }
@@ -65,9 +66,9 @@ export default function App() {
           setMovies(data.Search);
           setError(""); //because of rerendering and abort errors
         } catch (err) {
-          console.error(err.message);
           if (err.name !== "AbortError") {
             // to ignor abort errors
+            console.log(err.message);
             setError(err.message);
           }
         } finally {
@@ -80,8 +81,12 @@ export default function App() {
         setError("");
         return;
       }
-
+      handleCloseMovie();
       moviesFetching();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
