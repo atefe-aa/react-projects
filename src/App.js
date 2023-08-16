@@ -38,6 +38,10 @@ const projects = [
     name: "Exchange API",
     component: React.lazy(() => import("./10-exchangeAPI-Challenge/App")),
   },
+  {
+    name: "Geolocation API",
+    component: React.lazy(() => import("./11-getLocationChallenge/App")),
+  },
 ];
 
 export default function App() {
