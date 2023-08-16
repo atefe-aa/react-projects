@@ -42,6 +42,10 @@ const projects = [
     name: "Geolocation API",
     component: React.lazy(() => import("./11-getLocationChallenge/App")),
   },
+  {
+    name: "React Quiz",
+    component: React.lazy(() => import("./12-react-quiz/App")),
+  },
 ];
 
 export default function App() {
