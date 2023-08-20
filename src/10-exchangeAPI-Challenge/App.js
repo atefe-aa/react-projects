@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+document.title = `Exchange API`;
+
 export default function App() {
   const [toCurrency, setToCurrency] = useState("USD");
   const [fromCurrency, setFromCurrency] = useState("EUR");

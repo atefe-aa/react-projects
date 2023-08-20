@@ -14,6 +14,8 @@ import FinishScreen from "./components/FinishScreen";
 import Footer from "./components/Footer";
 import Timer from "./components/Timer";
 
+document.title = `The React Quiz`;
+
 const SECS_PER_QUESTION = 30;
 
 const initialState = {
@@ -82,7 +84,7 @@ function reducer(state, action) {
     case "tick":
       return {
         ...state,
-        remainingSeconds: state.remainingSeconds - 1
+        remainingSeconds: state.remainingSeconds - 1,
       };
     default:
       throw new Error("Unknown Action!");

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+document.title = `Location API`;
 function useGeolocation() {
   const [isLoading, setIsLoading] = useState(false);
   const [position, setPosition] = useState({});
