@@ -46,6 +46,10 @@ const projects = [
     name: "React Quiz",
     component: React.lazy(() => import("./12-react-quiz/App")),
   },
+  {
+    name: "Bank Account Challenge",
+    component: React.lazy(() => import("./13-BankAccountChallenge/App")),
+  },
 ];
 
 export default function App() {
