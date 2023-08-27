@@ -50,6 +50,10 @@ const projects = [
     name: "Bank Account Challenge",
     component: React.lazy(() => import("./13-BankAccountChallenge/App")),
   },
+  {
+    name: "Workout Timer",
+    component: React.lazy(() => import("./14-workout-timer/App")),
+  },
 ];
 
 export default function App() {
