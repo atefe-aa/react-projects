@@ -54,6 +54,10 @@ const projects = [
     name: "Workout Timer",
     component: React.lazy(() => import("./14-workout-timer/App")),
   },
+  {
+    name: "Redux Intro",
+    component: React.lazy(() => import("./15-redux-intro/App")),
+  },
 ];
 
 export default function App() {
